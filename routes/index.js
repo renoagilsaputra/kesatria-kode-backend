@@ -8,9 +8,12 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/covid19', async (req, res) => {
-  const response = await axios.get('https://api.api-ninjas.com/v1/covid19', {
+  const apiURL = process.env.API_URL;
+  const xApiKey = process.env.X_API_KEY;
+  
+  const response = await axios.get(apiURL, {
     headers: {
-      'x-api-key': 'Uck/NuK0JJ75Deal8OMzaw==ZtACH9eH6XHl3K3K',
+      'x-api-key': xApiKey,
     },
     params: {
       country: 'Indonesia',
